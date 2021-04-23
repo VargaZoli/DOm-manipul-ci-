@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initialscale=
+1.0">
+<title>Dom manipuláció/2</title>
+
+
+
+</head>
+<body>
+<div class="">
+<ul id="listOfName"></ul>
+</div>
+<div class="">
+
+<div class="">
+<input type="text" id="Inputa" >
+<button class="btn" id="Hozzaad">Hozzáad</button>
+</div>
+</div>
+</div>
+<script>
+    var givenName = document.querySelector('#Inputa')
+    var btnClass = document.querySelector('#Hozzaad')
+    var listOfName = document.querySelector('#listOfName')
+    btnClass.addEventListener('click', () => {
+        var actualName = givenName.value
+        if (actualName.length != 0) {
+            var createAnHTMLList = `<li class=""><div>${actualName}</div><button
+            onclick="removeNameFromTheList(this)">Töröl</button>`
+            listOfName.innerHTML += createAnHTMLList
+            givenName.value = ''
+            givenName.classList.remove('red')
+        } else
+        {
+            givenName.classList.add('red')
+        }
+    })
+    function removeNameFromTheList(e) {
+        e.parentElement.remove()
+    }
+</script>
+</body>
+</html>
